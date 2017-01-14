@@ -1,0 +1,149 @@
+.Play{
+  width: 70px;
+  height: 10px;
+
+}
+
+.back{
+  background-image: url("http://www.planwallpaper.com/static/images/824183-green-wallpaper.jpg");
+  background-position: center;
+  background-size: 1300px 900px;
+}
+
+.Headline{
+  text-align: center;
+  color:white;
+  font-style: italic;
+  font: Arial;
+  height: 60px;
+  font-size: 50px;
+}
+
+.group{
+  background-image: url("https://media.giphy.com/media/kFrLhbE8zX3cQ/giphy.gif");
+  background-position: center;
+  background-size: cover;
+  width: 38%;
+  margin: 0 auto;
+  background-image:
+.Buttons{
+    position: relative;
+    width: 20%;
+    margin: 0 auto;
+  }
+}
+.Buttons{
+
+    width: 50%;
+    margin: 0 auto;
+  }
+
+.filler{
+  height: 50px;
+}
+
+#shuff{
+  background-image:url("http://downloadicons.net/sites/default/files/shuffle-icon-68285.png");
+  background-size:cover;
+  background-repeat: no-repeat;
+  boder color: white;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+}
+
+
+#Play, #Previous, #Next, #Pause{
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+}
+
+#Play{
+  background-image: url("http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-3d-buttons-icons-media/002110-glossy-black-3d-button-icon-media-a-media22-arrow-forward1.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-color: white;
+}
+
+#Previous{
+  background-image: url("https://cdn3.iconfinder.com/data/icons/music-and-audio-controls/100/Skip_Previous-512.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-color: white;
+}
+
+#Pause{
+  background-image: url("http://www.myiconfinder.com/uploads/iconsets/256-256-7f94cbb88c4da5c5d4660a475d0d33b6.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-color: white;
+}
+
+#Next{
+  background-image: url("https://cdn3.iconfinder.com/data/icons/music-and-audio-controls/100/Skip_Next-512.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-color: white;
+}
+
+#current{
+  color: white;
+  font-size: 10px;
+  font-family:Georgia;
+  font-style: italic;
+  width: 50%;
+  margin: 0 auto;
+}
+
+#upNext{
+  color: white;
+  text-align: left;
+  font-size: 10px;
+  font-style: italic;
+  font-family: Georgia;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.current{
+  text-align: center;
+}
+
+.list{
+  position: relative;
+  width: 30%;
+  text-align: center;
+  font-style: italic;
+  font-family: FreeMono;
+  color: white;
+}
+
+ol{
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+ol::after{
+  content: "\a";
+  white-space: pre;
+}
+.textSearch{
+  width: 40%;
+  margin: 0 auto;
+  height: 100px;
+}
+
+.box{
+  position: relative;
+  margin: 0 auto;
+}
+
+#submit{
+  height:20px;
+  width:100px;
+  margin: -20px -50px;
+  position:relative;
+  top:25%;
+  left:50%;
+}
