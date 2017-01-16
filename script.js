@@ -11,6 +11,11 @@ function JukeBox(List) {
 }
  var box = new JukeBox(playList);
 
+$(document).ready(function () {
+    document.getElementById("current").innerHTML="Current Song: "+ box.List[index%box.List.length].id;
+    document.getElementById("upNext").innerHTML="Coming up Next: "+ box.List[(index+1)%(box.List.length)].id;
+  })
+
 document.getElementById("submit").addEventListener("click",function (event){
     event.preventDefault();
     var track= document.querySelector('.box').value;
@@ -24,21 +29,25 @@ document.getElementById("submit").addEventListener("click",function (event){
       if(isitaCopy(track)==false){
         var song= new Audio(response.tracks.items[0].preview_url)
         song.id=track;
-        $("ul").append("<ol>"+track+"</ol>")
+        $("ol").append("<li>"+track+"</li>")
         box.List.push(song);
         box.List[index %(box.List.length)].pause();
         box.List[index %(box.List.length)].currentTime=0;
         index=box.List.length-1;
         console.log(index);
         box.List[index].play();
+        document.getElementById("current").innerHTML="Current Song: "+ box.List[index%box.List.length].id;
+        document.getElementById("upNext").innerHTML="Coming up Next: "+ box.List[(index+1)%(box.List.length)].id;
       }
-      else if(isitaCopy==true){
+      else if(isitaCopy(track)==true){
         for(var i=0; i<box.List.length;i++){
-          if(box.List[i].id==track){
+          if(box.List[i].id===track){
             box.List[index %(box.List.length)].pause();
             box.List[index %(box.List.length)].currentTime=0;
             index=i;
             box.List[index %(box.List.length)].play();
+            document.getElementById("current").innerHTML="Current Song: "+ box.List[index%box.List.length].id;
+            document.getElementById("upNext").innerHTML="Coming up Next: "+ box.List[(index+1)%(box.List.length)].id;
           }
         }
       }//end of else
@@ -48,26 +57,83 @@ document.getElementById("submit").addEventListener("click",function (event){
 
   document.querySelector("#Play").addEventListener("click", function(){
     box.List[index %(box.List.length)].play();
+    document.getElementById("current").innerHTML="Current Song: "+ box.List[(index)%(box.List.length)].id;
+    document.getElementById("upNext").innerHTML="Coming up Next: "+ box.List[(index+1)%(box.List.length)].id;
   })
 
   document.querySelector("#Pause").addEventListener("click", function(){
     box.List[index %(box.List.length)].pause();
   })
 
+  document.querySelector("#Stop").addEventListener("click", function(){
+    box.List[(index)%(box.List.length)].pause();
+    box.List[(index)%(box.List.length)].currentTime=0;
+  })
+
   document.querySelector("#Next").addEventListener("click", function(){
     box.List[index %(box.List.length)].pause();
     box.List[index %(box.List.length)].currentTime=0;
     box.List[(index+1)%(box.List.length)].play();
-    index++;
+    index= (index+1)%(box.List.length);
+    document.getElementById("current").innerHTML="Current Song: "+ box.List[(index)%(box.List.length)].id;
+    document.getElementById("upNext").innerHTML="Coming up Next: "+ box.List[(index+1)%(box.List.length)].id;
   })
-
+  var startOver_or_newSong=0;
   document.querySelector("#Previous").addEventListener("click", function(){
+    if((startOver_or_newSong)%2 ==0){
     box.List[index %(box.List.length)].pause();
     box.List[index %(box.List.length)].currentTime=0;
-    box.List[index-1].play();
-    index--;
+    box.List[index].play();
+    startOver_or_newSong++;
+    document.getElementById("current").innerHTML="Current Song: "+ box.List[(index)%(box.List.length)].id;
+    document.getElementById("upNext").innerHTML="Coming up Next: "+ box.List[(index+1)%(box.List.length)].id;
+    }
+    else if((startOver_or_newSong)%2 !=0){
+      box.List[index %(box.List.length)].pause();
+      box.List[index %(box.List.length)].currentTime=0;
+      index--;
+      if(index>-1){
+        box.List[index].play();
+      }
+      else if (index<=-1){
+        index=box.List.length-1;
+        box.List[index].play();
+      }
+      startOver_or_newSong++;
+      document.getElementById("current").innerHTML="Current Song: "+ box.List[(index)%(box.List.length)].id;
+      document.getElementById("upNext").innerHTML="Coming up Next: "+ box.List[(index+1)%(box.List.length)].id;
+    }
   })
 
+  document.querySelector("#shuff").addEventListener("click", function(){
+    var x= Math.floor((Math.random()*box.List.length));
+    box.List[index%(box.List.length)].pause();
+    box.List[index%(box.List.length)].currentTime=0;
+    index=x;
+    box.List[index%(box.List.length)].play();
+    document.getElementById("current").innerHTML="Current Song: "+ box.List[(index)%(box.List.length)].id;
+    document.getElementById("upNext").innerHTML="Coming up Next: "+ box.List[(index+1)%(box.List.length)].id;
+  })
+
+  $(".list").css({
+    position:'relative',
+    top:'-80px',
+    height: '400px'
+  });
+
+  $('.group').css({
+    position:'relative',
+    top:'300px'
+  })
+  function isitaCopy(string){
+    for(var i=0;i<box.List.length;i++){
+      if(box.List[i].id===string)
+        return true;
+    }
+    return false;
+  }
+
+//This was my first attempt and while works was too complicated and having slight issues with pausing spotify songs.
 //**************************************************************************************************************************************************//
 // var names =[]
 // for(var i=0;i<box.List.length; i++){
@@ -170,20 +236,3 @@ document.getElementById("submit").addEventListener("click",function (event){
 //   box.List[x].play();
 // }
 //*****************************************************************************************************************************************************//
-$(".list").css({
-  position:'relative',
-  top:'-80px',
-  height: '400px'
-});
-
-$('.group').css({
-  position:'relative',
-  top:'300px'
-})
-function isitaCopy(string){
-  for(var i=0;i<box.List.length;i++){
-    if(box.List[i].id===string)
-      return true;
-  }
-  return false;
-}
