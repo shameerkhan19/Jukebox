@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Preview JukeBox</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <div class="filler">
@@ -25,6 +25,7 @@
   <button type="button" id="Previous"></button>
   <button type="button" id="Play" name="Play"></button>
   <button type="button" id="Pause"></button>
+  <button type="button" id="Stop"></button>
   <button type="button" id="Next" ></button>
   <button type="button" id="shuff"></button>
   </div>
@@ -36,13 +37,16 @@
   <audio src="Lookin'.mp3"id="Lookin"></audio>
   <audio src="Control.mp3" id="Control"></audio>
   <div class="list"><br/><br/>
-  <ul>
-    <ol>Aurora</ol>
-    <ol>Nice</ol>
-    <ol>Orbit</ol>
-    <ol>Lookin</ol>
-    <ol>Control</ol>
-  </ul>
+    <div class="innerList">
+  <ol>
+    <p class= "title"> PlayList:</p>
+    <li>Aurora</li>
+    <li>Nice</li>
+    <li>Orbit</li>
+    <li>Lookin</li>
+    <li>Control</li>
+  </ol>
+  </div>
   </div>
   <script src="jquery.js"></script>
   <script src="script.js"></script>

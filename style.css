@@ -5,18 +5,22 @@
 }
 
 .back{
-  background-image: url("http://www.planwallpaper.com/static/images/824183-green-wallpaper.jpg");
+  background-image: url("http://ellarow.com/i/2017/01/colorful-abstract-hd-wallpapers-high-resolution.jpg");
   background-position: center;
-  background-size: 1300px 900px;
+  background-size: 1300px 800px;
 }
 
 .Headline{
   text-align: center;
-  color:white;
+  color:lightyellow;
   font-style: italic;
   font: Arial;
   height: 60px;
   font-size: 50px;
+}
+
+.title{
+  text-align:left;
 }
 
 .group{
@@ -53,7 +57,7 @@
 }
 
 
-#Play, #Previous, #Next, #Pause{
+#Play, #Previous, #Next, #Pause, #Stop{
   height: 40px;
   width: 40px;
   border-radius: 100%;
@@ -61,6 +65,13 @@
 
 #Play{
   background-image: url("http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/glossy-black-3d-buttons-icons-media/002110-glossy-black-3d-button-icon-media-a-media22-arrow-forward1.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-color: white;
+}
+
+#Stop{
+  background-image: url("https://image.freepik.com/free-icon/stop-square-symbol-in-a-circle_318-53077.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
   border-color: white;
@@ -75,6 +86,12 @@
 
 #Pause{
   background-image: url("http://www.myiconfinder.com/uploads/iconsets/256-256-7f94cbb88c4da5c5d4660a475d0d33b6.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-color: white;
+}
+
+#Stop{
   background-size: 100%;
   background-repeat: no-repeat;
   border-color: white;
@@ -112,22 +129,28 @@
 
 .list{
   position: relative;
-  width: 30%;
-  text-align: center;
+  width: 13%;
+  text-align: left;
   font-style: italic;
   font-family: FreeMono;
-  color: white;
+  color: ivory;
+  overflow: hidden;
+  height: 20%;
 }
 
-ol{
-  overflow-y: auto;
+.innelist{
+  width: 13%;
+  height: 20%;
+  overflow-y: scroll;
+  padding-right: 20px;
+  right: 0;
+  top:0;
+}
+
+li{
   margin-bottom: 10px;
 }
 
-ol::after{
-  content: "\a";
-  white-space: pre;
-}
 .textSearch{
   width: 40%;
   margin: 0 auto;
